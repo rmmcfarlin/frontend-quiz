@@ -45,11 +45,17 @@
 body.light {
   --bg: #F4F6FA;
   --text: #313E51;
+  background-image: url(./assets/images/pattern-background-desktop-light.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 body.dark {
   --bg: #313E51;
   --text: #ffffff;
+  background-image: url(./assets/images/pattern-background-desktop-dark.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 /* main */
@@ -112,6 +118,23 @@ body {
   padding: 1.5rem;
 }
 
+.menubutton.light {
+  background-color: #ffffff;
+}
+
+.menubutton.dark {
+ background-color: var(--blue850);
+ color: white;
+}
+
+.menubutton.light:hover {
+  box-shadow: 0 0 5px #2D3949; 
+}
+
+.menubutton.dark:hover {
+  box-shadow: 0 0 5px #ABC1E1;
+}
+
 .menubuttonicon {
   width: "46px";
   border-radius: 8px;
@@ -123,7 +146,7 @@ body {
 
 .App {
   text-align: center;
-  position: relative;
+  position: relative;  
 }
 
 .App-logo {
@@ -158,5 +181,74 @@ body {
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+
+/* mobile */
+
+@media screen and (max-width: 1024px) {
+  body {
+    padding: 54px;
+  }
+  .startmenu {
+    flex-direction: column;
+    height: 670px;
+    justify-content: space-between;
+  }
+
+  .menutext, .quizbuttons {
+    width: 100%;
+  }
+
+  .menutext p:last-of-type {
+    margin-top: 1rem;
+  }
+
+  .menubutton {
+    height: 88px;
+  }
+
+  .quizbuttons {
+    height: 63.28%;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  body {
+    padding: 1.5rem;
+  }
+
+  .startmenu {
+    height: max(501px, 67.7vh);
+    justify-content: flex-start;
+  }
+  
+  .startmenu p {
+    font-size: 2.5rem;
+  }
+
+  .menutext p:last-of-type {
+    font-size: 18px;
+    margin-bottom: 2.5rem;
+  }
+
+  .menubutton {
+    height: 72px;
+    border-radius: 12px;
+    margin-top: 1rem;
+  }
+
+  .menubutton p {
+    font-size: 18px;
+  }
+
+  .buttonicon {
+    width: 40px;
+  }
+
+  .quizbuttons {
+    justify-content: flex-start;
   }
 }

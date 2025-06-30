@@ -28,7 +28,7 @@ function AppWithTheme() {
   return (
     <div className="App">
       <ThemeSwitch />
-      <StartMenu />
+      <StartMenu theme={theme}/>
     </div>
   );
 }
