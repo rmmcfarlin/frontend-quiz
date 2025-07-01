@@ -3,8 +3,11 @@ import './App.css';
 import StartMenu from './startmenu';
 import ThemeSwitch from './themeswitch';
 import { ThemeProvider } from './themeprovider';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useTheme } from "./themeprovider"
+import MenuText from './menutext';
+import QuizSelection from './menubuttons';
+import AppSkeleton from './skeleton';
 
 function App() {
 
@@ -21,6 +24,9 @@ export default App;
 function AppWithTheme() {
   const { theme } = useTheme();
 
+  const [leftContent, setLeftContent] = useState(() => MenuText)
+  const [rightContent, setRightContent] = useState(() => QuizSelection)
+
   useEffect(() => {
     document.body.className = theme;
   }, [theme]);
@@ -28,7 +34,7 @@ function AppWithTheme() {
   return (
     <div className="App">
       <ThemeSwitch />
-      <StartMenu theme={theme}/>
+      <AppSkeleton theme={theme} leftContent={leftContent} rightContent={rightContent}/>
     </div>
   );
 }

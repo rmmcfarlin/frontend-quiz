@@ -74,12 +74,12 @@ body {
 
 /* start menu page */
 
-.startmenu {
+.appcontainer {
   display: flex;
   height: max(464px, 48.334vh);
 }
 
-.menutext, .quizbuttons {
+.leftcontent, .rightcontent {
   width: 50%;
 }
 
@@ -102,7 +102,7 @@ body {
   display: flex;
   flex-direction: column;
   height: 100%;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .quizbuttons p {
@@ -116,7 +116,12 @@ body {
   border: none;
   align-items: center;
   padding: 1.5rem;
+  margin-top: 1rem;
 }
+
+.menubutton:first-of-type {
+    margin-top: 0;
+  }
 
 .menubutton.light {
   background-color: #ffffff;
@@ -135,8 +140,8 @@ body {
   box-shadow: 0 0 5px #ABC1E1;
 }
 
-.menubuttonicon {
-  width: "46px";
+.buttonicon {
+  width: 56px;
   border-radius: 8px;
   margin-right: 2rem;
 }
@@ -187,17 +192,17 @@ body {
 
 /* mobile */
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1200px) {
   body {
     padding: 54px;
   }
-  .startmenu {
+  .appcontainer {
     flex-direction: column;
     height: 670px;
     justify-content: space-between;
   }
 
-  .menutext, .quizbuttons {
+  .leftcontent, .rightcontent {
     width: 100%;
   }
 
@@ -209,8 +214,12 @@ body {
     height: 88px;
   }
 
-  .quizbuttons {
+  .rightcontent {
     height: 63.28%;
+  }
+
+  .quizbuttons {
+    height: 100%;
     justify-content: space-between;
   }
 }
@@ -220,12 +229,12 @@ body {
     padding: 1.5rem;
   }
 
-  .startmenu {
+  .appcontainer {
     height: max(501px, 67.7vh);
     justify-content: flex-start;
   }
   
-  .startmenu p {
+  .appcontainer p {
     font-size: 2.5rem;
   }
 
@@ -238,6 +247,10 @@ body {
     height: 72px;
     border-radius: 12px;
     margin-top: 1rem;
+  }
+
+  .menubutton:first-of-type {
+    margin-top: 0;
   }
 
   .menubutton p {
