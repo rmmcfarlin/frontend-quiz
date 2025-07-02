@@ -26,6 +26,7 @@ function AppWithTheme() {
 
   const [leftContent, setLeftContent] = useState(() => MenuText)
   const [rightContent, setRightContent] = useState(() => QuizSelection)
+  
 
   useEffect(() => {
     document.body.className = theme;
