@@ -1,16 +1,11 @@
 
-const AppSkeleton = ({theme: theme, leftContent: LeftContent, rightContent: RightContent}) => {
+const AppSkeleton = ({theme: theme, content: Content, onClick: onClick}) => {
 
    
 
     return (
         <div className="appcontainer">
-            <div className="leftcontent">
-                <LeftContent theme={theme} />
-            </div>
-            <div className="rightcontent">
-                <RightContent theme={theme} />
-            </div >
+            <Content theme={theme} onClick={onClick}/>
         </div>
     )
 }

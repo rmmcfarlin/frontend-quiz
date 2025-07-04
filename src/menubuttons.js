@@ -8,7 +8,7 @@ const QuizSelection = ({theme}) => {
 
     return (
             <div className="quizbuttons">
-                <button className={`menubutton ${theme}`}>
+                <button className={`menubutton ${theme}`} >
                     <img src={htmlIcon} style={{backgroundColor:"#FFF5ED"}} className="buttonicon" alt="html icon"></img>
                     <p>HTML</p>
                 </button>

@@ -1,22 +1,32 @@
+import { useState } from "react"
 import quizData from "./data.json"
 
 
-const Quiz = ({quizTitle}) => {
+const Quiz = ({theme, quizTitle}) => {
      
-    let selectedQuiz = quizData.quizzes.find(q => q.title === quizTitle)
 
-     let questionSet = selectedQuiz.questions
+    const [i, setI] = useState(0)
 
-     let currQuestion = questionSet[i].question
-     let currQuestionOptions = questionSet[i].options
+    let questionNumber = i + 1
+
+    let selectedQuiz = quizData.quizzes.find(q => q.title === "HTML")
+    let current = selectedQuiz.questions[i]
+    let currQuestion = current.question
+    let currQuestionOptions = current.options
+
+    const handleSubmit = () => {
+        
+        setI(i + 1)
+    }
+
 
     return (
-    <div>
-        <div className="quizquestion">
-           <p>Question {questionNumber} of 10.</p>
-           <p>{currQuestion}</p>
+    <>
+        <div className="menutext">
+           <p id="questionnumber">Question {questionNumber} of 10.</p>
+           <p id="quizquestion">{currQuestion}</p>
         </div>
-        <div className="quizoptions">
+        <div className="quizbuttons">
              <button className={`quizbutton ${theme}`}>
                     <p className="buttonicon">A</p>
                     <p>{currQuestionOptions[0]}</p>
@@ -33,10 +43,11 @@ const Quiz = ({quizTitle}) => {
                     <p className="buttonicon">D</p>
                     <p>{currQuestionOptions[3]}</p>
                 </button>
+                <button className="submitbutton" onClick={handleSubmit}>Submit Answer</button>
         </div>
-    </div>
+    </>
     )
 }
 
 
-Quiz(quizData)
+export default Quiz

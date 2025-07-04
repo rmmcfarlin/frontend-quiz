@@ -76,10 +76,15 @@ body {
 
 .appcontainer {
   display: flex;
-  height: max(464px, 48.334vh);
+  height: max(588px, 48.334vh);
 }
 
-.leftcontent, .rightcontent {
+.appcontainer {
+  width: 100%;
+  display: flex;
+}
+
+ .menutext, .quizbuttons {
   width: 50%;
 }
 
@@ -87,17 +92,29 @@ body {
   justify-items: left;
 }
 
-.menutext p {
+.menutext p, #quizquestion {
   font-size: 4rem;
   font-weight: 300;
 }
 
-.menutext p:last-of-type {
+.menutext p:last-of-type, #questionnumber {
   font-size: 1.25rem;
   font-style: italic;
   margin-top: 3rem;
 }
 
+#questionnumber {
+  margin-top: 0rem;
+}
+
+#quizquestion {
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 450;
+  line-height: 120%;
+  text-align: left;
+
+}
 .quizbuttons {
   display: flex;
   flex-direction: column;
@@ -105,11 +122,11 @@ body {
   justify-content: flex-start;
 }
 
-.quizbuttons p {
+.quizbutton p {
   font-size: 1.75rem;
 }
 
-.menubutton {
+.quizbutton, .submitbutton {
   display: flex;
   height: 104px;
   border-radius: 24px;
@@ -119,25 +136,39 @@ body {
   margin-top: 1rem;
 }
 
-.menubutton:first-of-type {
+.submitbutton {
+  background-color: var(--purple600);
+  color: white;
+  font-size: 1.75rem;
+  justify-content: center;
+  font-weight: 500;
+  margin-top: 2rem;
+}
+
+.quizbutton:first-of-type {
     margin-top: 0;
   }
 
-.menubutton.light {
+.quizbutton.light {
   background-color: #ffffff;
 }
 
-.menubutton.dark {
+.quizbutton.dark {
  background-color: var(--blue850);
  color: white;
 }
 
-.menubutton.light:hover {
+.quizbutton.light:hover {
   box-shadow: 0 0 5px #2D3949; 
 }
 
-.menubutton.dark:hover {
+.quizbutton.dark:hover {
   box-shadow: 0 0 5px #ABC1E1;
+}
+
+.submitbutton:hover {
+  background-color: #B24EFF;
+  box-shadow: 0 0 5px #2D3949; 
 }
 
 .buttonicon {
@@ -202,7 +233,7 @@ body {
     justify-content: space-between;
   }
 
-  .leftcontent, .rightcontent {
+  .menutext, .quizbuttons {
     width: 100%;
   }
 
@@ -210,16 +241,16 @@ body {
     margin-top: 1rem;
   }
 
-  .menubutton {
+  .quizbutton {
     height: 88px;
   }
 
   .rightcontent {
-    height: 63.28%;
+    
   }
 
   .quizbuttons {
-    height: 100%;
+    height: 63.28%;
     justify-content: space-between;
   }
 }
@@ -243,22 +274,23 @@ body {
     margin-bottom: 2.5rem;
   }
 
-  .menubutton {
+  .quizbutton {
     height: 72px;
     border-radius: 12px;
     margin-top: 1rem;
   }
 
-  .menubutton:first-of-type {
+  .quizbutton:first-of-type {
     margin-top: 0;
   }
 
-  .menubutton p {
+  .quizbutton p {
     font-size: 18px;
   }
 
   .buttonicon {
     width: 40px;
+    margin-right: 1rem;
   }
 
   .quizbuttons {
