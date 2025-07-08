@@ -26,11 +26,12 @@ function AppWithTheme() {
   const { theme } = useTheme();
 
   const [content, setContent] = useState(() => StartMenu)
-
-  const selectQuiz = () => {
-    setContent(() => Quiz)
-  }
+  const [quizName, setQuizName] = useState(null) 
   
+  const handleQuizSelect = (name) => {
+    console.log(name)
+  setQuizName(name);
+}; 
 
   useEffect(() => {
     document.body.className = theme;
@@ -39,7 +40,13 @@ function AppWithTheme() {
   return (
     <div className="App">
       <ThemeSwitch />
-      <AppSkeleton theme={theme} content={content} onClick={selectQuiz}/>
+      <AppSkeleton theme={theme} content={content}>
+        {quizName ? (
+          <Quiz theme={theme} title={quizName} />
+        ) : (
+         <StartMenu theme={theme} onSelect={handleQuizSelect} />
+        )}
+        </AppSkeleton>
     </div>
   );
 }

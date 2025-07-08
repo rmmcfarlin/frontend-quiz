@@ -136,6 +136,10 @@ body {
   margin-top: 1rem;
 }
 
+.quizbutton {
+  position: relative;
+}
+
 .submitbutton {
   background-color: var(--purple600);
   color: white;
@@ -166,17 +170,49 @@ body {
   box-shadow: 0 0 5px #ABC1E1;
 }
 
+.quizbutton:focus {
+  border: 3px solid #B24EFF;
+}
+
 .submitbutton:hover {
   background-color: #B24EFF;
   box-shadow: 0 0 5px #2D3949; 
 }
 
-.buttonicon {
+.buttonicon, .quizbuttonicon {
   width: 56px;
   border-radius: 8px;
   margin-right: 2rem;
 }
 
+.quizbuttonicon {
+  background-color: var(--grey50);
+  padding: 12.5px 0;
+  color: #282c34;
+}
+
+
+.quizbutton.incorrect {
+  border: 3px solid var(--red500);
+}
+
+.quizbutton.correct {
+  border: 3px solid var(--green500);
+}
+
+.quizbutton.incorrect p:first-of-type {
+  background-color: var(--red500);
+}
+
+.quizbutton.correct p:first-of-type {
+  background-color: var(--green500);
+}
+
+.quizbutton img:last-child {
+  position: absolute;
+  right: 29px;
+
+}
 
 /* app */
 

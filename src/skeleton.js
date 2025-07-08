@@ -1,11 +1,11 @@
 
-const AppSkeleton = ({theme: theme, content: Content, onClick: onClick}) => {
-
-   
+const AppSkeleton = ({theme, children}) => {
+    
+    
 
     return (
-        <div className="appcontainer">
-            <Content theme={theme} onClick={onClick}/>
+        <div className={`appcontainer ${theme}`}>
+            {children}
         </div>
     )
 }
