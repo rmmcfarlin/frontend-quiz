@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/frontend-quiz/static/css/main.81271895.css",
-    "main.js": "/frontend-quiz/static/js/main.bb287cb2.js",
+    "main.css": "/frontend-quiz/static/css/main.4dfa64ee.css",
+    "main.js": "/frontend-quiz/static/js/main.194468b8.js",
     "static/js/453.84cfdf1f.chunk.js": "/frontend-quiz/static/js/453.84cfdf1f.chunk.js",
     "static/media/logo.svg": "/frontend-quiz/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/frontend-quiz/index.html",
@@ -9,18 +9,20 @@
     "static/media/icon-sun-dark.svg": "/frontend-quiz/static/media/icon-sun-dark.397b32a9036f98ca274240324c9b6d42.svg",
     "static/media/icon-sun-light.svg": "/frontend-quiz/static/media/icon-sun-light.b3b23bea296f86a7f2c14d4d8eaa2b4d.svg",
     "static/media/icon-js.svg": "/frontend-quiz/static/media/icon-js.a62162800ae2979d4250f620d1301b9f.svg",
+    "static/media/icon-incorrect.svg": "/frontend-quiz/static/media/icon-incorrect.22188a658072577ad2bec5058968b609.svg",
     "static/media/icon-css.svg": "/frontend-quiz/static/media/icon-css.115d7e7823ae5239adb8ec5eac937f1a.svg",
     "static/media/icon-html.svg": "/frontend-quiz/static/media/icon-html.0317136c38b703264ee00bd54200c611.svg",
     "static/media/icon-moon-dark.svg": "/frontend-quiz/static/media/icon-moon-dark.31aa7165f1fc864be0b9d0a3457a2525.svg",
     "static/media/icon-moon-light.svg": "/frontend-quiz/static/media/icon-moon-light.8ce3add6042354c900e1fb16bb5f1780.svg",
+    "static/media/icon-correct.svg": "/frontend-quiz/static/media/icon-correct.80b6b3c6b5dd06424058a9a0700912d4.svg",
     "static/media/pattern-background-desktop-dark.svg": "/frontend-quiz/static/media/pattern-background-desktop-dark.e211d976d5b431130f82.svg",
     "static/media/pattern-background-desktop-light.svg": "/frontend-quiz/static/media/pattern-background-desktop-light.d8d38901bd02457d3784.svg",
-    "main.81271895.css.map": "/frontend-quiz/static/css/main.81271895.css.map",
-    "main.bb287cb2.js.map": "/frontend-quiz/static/js/main.bb287cb2.js.map",
+    "main.4dfa64ee.css.map": "/frontend-quiz/static/css/main.4dfa64ee.css.map",
+    "main.194468b8.js.map": "/frontend-quiz/static/js/main.194468b8.js.map",
     "453.84cfdf1f.chunk.js.map": "/frontend-quiz/static/js/453.84cfdf1f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.81271895.css",
-    "static/js/main.bb287cb2.js"
+    "static/css/main.4dfa64ee.css",
+    "static/js/main.194468b8.js"
   ]
 }
