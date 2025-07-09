@@ -9,6 +9,7 @@ import MenuText from './menutext';
 import QuizSelection from './menubuttons';
 import AppSkeleton from './skeleton';
 import Quiz from './quiz';
+import QuizScore from './quizscore';
 
 function App() {
 
@@ -27,6 +28,7 @@ function AppWithTheme() {
 
   const [content, setContent] = useState(() => StartMenu)
   const [quizName, setQuizName] = useState(null) 
+  const [quizCompleted, setQuizCompleted] = useState(false)
   
   const handleQuizSelect = (name) => {
     console.log(name)
@@ -41,11 +43,13 @@ function AppWithTheme() {
     <div className="App">
       <ThemeSwitch />
       <AppSkeleton theme={theme} content={content}>
-        {quizName ? (
-          <Quiz theme={theme} title={quizName} />
-        ) : (
-         <StartMenu theme={theme} onSelect={handleQuizSelect} />
-        )}
+        {quizCompleted ? (
+          <QuizScore /> 
+          ) : ( quizName ? (
+              <Quiz theme={theme} title={quizName} setQuizCompleted={setQuizCompleted} />
+             ) : (
+              <StartMenu theme={theme} onSelect={handleQuizSelect} />
+         ))}
         </AppSkeleton>
     </div>
   );

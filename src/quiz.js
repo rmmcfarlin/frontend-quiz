@@ -2,9 +2,10 @@ import { useState } from "react"
 import quizData from "./data.json"
 import incorrectIcon from "./assets/images/icon-incorrect.svg"
 import correctIcon from "./assets/images/icon-correct.svg"
+import RenderButton from "./actionbutton"
 
 
-const Quiz = ({theme, title}) => {
+const Quiz = ({theme, title, setQuizCompleted}) => {
 
     const [i, setI] = useState(0)
     const [answerValue, setAnswerValue] = useState("")
@@ -12,6 +13,9 @@ const Quiz = ({theme, title}) => {
     const [isSubmitted, setIsSubmitted] = useState(false)
     const [selectedIndex, setSelectedIndex] = useState(null)
     const [correctIndex, setCorrectIndex] = useState(null)
+    const [errorMsg, setErrorMsg] = useState(false)
+    const [score, setScore] = useState(0)
+
     const options = ["A", "B", "C", "D"]
     
     let questionNumber = i + 1
@@ -21,11 +25,22 @@ const Quiz = ({theme, title}) => {
     let currQuestionOptions = current.options
     let correctAnswer = current.answer
 
+    console.log(i)
+
+    const ErrorMessage = () => {
+        return (
+            <div className="errormessage">
+             <img src={incorrectIcon} style={{width:"30px", display:"inline", marginRight:"0.5rem"}}></img>
+             <span>Please select an answer</span> 
+            </div>
+        )
+    }
+
     const getCorrectIndex = () => {
 
-        for (let i = 0; i < 4; i++) {
-            if (currQuestionOptions[i] === correctAnswer) {
-                setCorrectIndex(i)
+        for (let j = 0; j < 4; j++) {
+            if (currQuestionOptions[j] === correctAnswer) {
+                setCorrectIndex(j)
             }
         }
     }
@@ -34,12 +49,32 @@ const Quiz = ({theme, title}) => {
         setSelectedAnswer(currQuestionOptions[index])
         setSelectedIndex(index)
         getCorrectIndex()
+        setErrorMsg(false)
     }
 
     const handleSubmit = () => {
-        selectedAnswer === correctAnswer ? setAnswerValue("correct") : setAnswerValue("incorrect")
-        setIsSubmitted(true)
-        getClass(selectedAnswer)
+
+        if (selectedAnswer === "") {
+            setErrorMsg(true)
+        } else {
+                if (selectedAnswer === correctAnswer) {
+                    setAnswerValue("correct")
+                    setScore(score + 1)
+                } else {
+                    setAnswerValue("incorrect")
+                }
+             setIsSubmitted(true)
+             getClass(selectedAnswer)
+        }
+    }
+
+    const nextQuestion = () => {
+        setI(i + 1)
+        setAnswerValue("")
+        setIsSubmitted(false)
+        setSelectedAnswer("")
+        setSelectedIndex(null)
+        setCorrectIndex(null)
     }
 
     let answerIcon = null 
@@ -94,7 +129,7 @@ const Quiz = ({theme, title}) => {
 
                 return (
                     <>
-                    <button option={option} key={index} className={classNames} onClick={() => selectAnswer(index)}>
+                    <button option={option} key={index} className={classNames} onClick={() => selectAnswer(index)} disabled={isSubmitted}>
                         <p className={`quizbuttonicon ${theme}`}>{option}</p>
                         <p>{currQuestionOptions[index]}</p>
                         <img src={ansIcon} style={{width: "30px", display:"block"}}></img>
@@ -102,7 +137,10 @@ const Quiz = ({theme, title}) => {
                     </>
                 )
             })}
-        <button className="submitbutton" onClick={handleSubmit}>Submit Answer</button>
+            <RenderButton i={i} isSubmitted={isSubmitted} nextQuestion={nextQuestion} handleSubmit={handleSubmit} setQuizCompleted={setQuizCompleted}/>
+            {errorMsg ? 
+            (<ErrorMessage />)
+            : (<></>)}
         </div>
     </>
     )
