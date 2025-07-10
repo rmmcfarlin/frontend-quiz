@@ -29,9 +29,9 @@ function AppWithTheme() {
   const [content, setContent] = useState(() => StartMenu)
   const [quizName, setQuizName] = useState(null) 
   const [quizCompleted, setQuizCompleted] = useState(false)
+  const [score, setScore] = useState(0)
   
   const handleQuizSelect = (name) => {
-    console.log(name)
   setQuizName(name);
 }; 
 
@@ -41,12 +41,12 @@ function AppWithTheme() {
 
   return (
     <div className="App">
-      <ThemeSwitch />
+      <ThemeSwitch quizName={quizName}/>
       <AppSkeleton theme={theme} content={content}>
         {quizCompleted ? (
-          <QuizScore /> 
+          <QuizScore theme={theme} quizName={quizName} score={score} setQuizName={setQuizName} setQuizCompleted={setQuizCompleted} setScore={setScore} /> 
           ) : ( quizName ? (
-              <Quiz theme={theme} title={quizName} setQuizCompleted={setQuizCompleted} />
+              <Quiz theme={theme} title={quizName} setQuizCompleted={setQuizCompleted} setScore={setScore} score={score} quizName={quizName} />
              ) : (
               <StartMenu theme={theme} onSelect={handleQuizSelect} />
          ))}

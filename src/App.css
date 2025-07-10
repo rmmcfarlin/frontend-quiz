@@ -90,6 +90,7 @@ body {
 
 .menutext {
   justify-items: left;
+  position: relative;
 }
 
 .menutext p, #quizquestion {
@@ -228,8 +229,79 @@ body {
 
 button:disabled {
   color: var(--text);
-
 }
+
+#scored {
+  font-size: 64px;
+  font-weight: 400;
+  font-style: normal;
+  margin-top: 0;
+}
+
+.scoreoutput {
+  height: 65.99%;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.scoreoutput.light {
+  background-color: white;
+}
+
+.scoreoutput.dark {
+  background-color: var(--blue850);
+}
+
+.halfbutton {
+  width: 48%;
+  display: inline;
+}
+
+.scorebuttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.scoreID {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8.3%;
+  margin-bottom: 2.5rem;
+}
+
+.scoreID p {
+  font-size: 28px;
+  margin-left: 24px;
+  color: var(--text);
+}
+
+.scoreoutput p:nth-last-of-type(2) {
+  font-size: 144px;
+}
+
+.quizIDmain {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  position: absolute;
+}
+
+.quizIDmain p:first-of-type {
+  font-size: 28px;
+  margin: 0;
+  font-style: normal;
+  text-align: center;
+}
+
+.quizIDmain img {
+  width: 40px;
+  padding: 8px;
+  margin-right: 24px;
+}
+
 /* app */
 
 .App {
@@ -273,7 +345,7 @@ button:disabled {
 }
 
 
-/* mobile */
+/* tablets */
 
 @media screen and (max-width: 1200px) {
   body {
@@ -298,10 +370,17 @@ button:disabled {
   }
 
   .quizbuttons {
-    height: 63.28%;
+    height: max(512px, 63.28%);
     justify-content: space-between;
+    margin-top: 4rem;
+  }
+
+  .scoreoutput {
+    height: max(388px, 75.78%);
   }
 }
+
+/* mobile */
 
 @media screen and (max-width: 767px) {
   body {
@@ -344,5 +423,10 @@ button:disabled {
 
   .quizbuttons {
     justify-content: flex-start;
+  }
+
+  .quizIDmain p:first-of-type {
+    font-size: 18px;
+    margin-left: -8px;
   }
 }

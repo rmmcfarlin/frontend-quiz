@@ -3,9 +3,10 @@ import quizData from "./data.json"
 import incorrectIcon from "./assets/images/icon-incorrect.svg"
 import correctIcon from "./assets/images/icon-correct.svg"
 import RenderButton from "./actionbutton"
+import QuizID from "./quizID"
 
 
-const Quiz = ({theme, title, setQuizCompleted}) => {
+const Quiz = ({theme, title, setQuizCompleted, setScore, score, quizName}) => {
 
     const [i, setI] = useState(0)
     const [answerValue, setAnswerValue] = useState("")
@@ -14,7 +15,7 @@ const Quiz = ({theme, title, setQuizCompleted}) => {
     const [selectedIndex, setSelectedIndex] = useState(null)
     const [correctIndex, setCorrectIndex] = useState(null)
     const [errorMsg, setErrorMsg] = useState(false)
-    const [score, setScore] = useState(0)
+    
 
     const options = ["A", "B", "C", "D"]
     
@@ -25,7 +26,7 @@ const Quiz = ({theme, title, setQuizCompleted}) => {
     let currQuestionOptions = current.options
     let correctAnswer = current.answer
 
-    console.log(i)
+    console.log(score)
 
     const ErrorMessage = () => {
         return (
