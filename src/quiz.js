@@ -4,6 +4,7 @@ import incorrectIcon from "./assets/images/icon-incorrect.svg"
 import correctIcon from "./assets/images/icon-correct.svg"
 import RenderButton from "./actionbutton"
 import QuizID from "./quizID"
+import ProgressBar from "./progressbar"
 
 
 const Quiz = ({theme, title, setQuizCompleted, setScore, score, quizName}) => {
@@ -15,7 +16,6 @@ const Quiz = ({theme, title, setQuizCompleted, setScore, score, quizName}) => {
     const [selectedIndex, setSelectedIndex] = useState(null)
     const [correctIndex, setCorrectIndex] = useState(null)
     const [errorMsg, setErrorMsg] = useState(false)
-    
 
     const options = ["A", "B", "C", "D"]
     
@@ -25,6 +25,7 @@ const Quiz = ({theme, title, setQuizCompleted, setScore, score, quizName}) => {
     let currQuestion = current.question
     let currQuestionOptions = current.options
     let correctAnswer = current.answer
+    
 
     console.log(score)
 
@@ -121,6 +122,7 @@ const Quiz = ({theme, title, setQuizCompleted, setScore, score, quizName}) => {
         <div className="menutext">
            <p id="questionnumber">Question {questionNumber} of 10.</p>
            <p id="quizquestion">{currQuestion}</p>
+           <ProgressBar progress={questionNumber} theme={theme} />
         </div>
         <div className="quizbuttons">
             {options.map((option, index) => {
@@ -131,7 +133,7 @@ const Quiz = ({theme, title, setQuizCompleted, setScore, score, quizName}) => {
                 return (
                     <>
                     <button option={option} key={index} className={classNames} onClick={() => selectAnswer(index)} disabled={isSubmitted}>
-                        <p className={`quizbuttonicon ${theme}`}>{option}</p>
+                        <span className={`quizbuttonicon ${theme}`}>{option}</span>
                         <p>{currQuestionOptions[index]}</p>
                         <img src={ansIcon} style={{width: "30px", display:"block"}}></img>
                     </button>

@@ -29,7 +29,7 @@ const QuizScore = ({theme, quizName, score, setQuizName, setQuizCompleted, setSc
     return (
         <>
             <div className="menutext">
-                <p>Quiz Completed!</p>
+                <p id="completed">Quiz Completed!</p>
                 <p id="scored">You scored...</p>
             </div>
             <div className="quizbuttons">
